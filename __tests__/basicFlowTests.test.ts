@@ -19,6 +19,7 @@ describe('tests', () => {
 
     expect(btcInformation.market).toEqual(Market.BTC_USD);
     expect(btcInformation.exchangePrices.coinbase.lastPrice).toEqual(49000);
+    expect(btcInformation.exchangePrices.ftx.lastPrice).toEqual(49800);
 
     // iterating over the keys of the exchangePrices
     Object.keys(btcInformation.exchangePrices).forEach((exchange: string) => {
