@@ -1,57 +1,57 @@
 describe('tests', () => {
-    it('ts test1', async () => {
-        function resolveAfter2Seconds() {
-            return new Promise(resolve => {
-                setTimeout(() => {
-                    resolve('resolved');
-                }, 2000);
-            });
-        }
+  it('ts test1', async () => {
+    function resolveAfter2Seconds() {
+      return new Promise(resolve => {
+        setTimeout(() => {
+          resolve('resolved');
+        }, 2000);
+      });
+    }
 
-        async function asyncCall() {
-            console.log('calling');
-            const result = await resolveAfter2Seconds();
-            console.log(result);
-            // expected output: "resolved"
-        }
+    async function asyncCall() {
+      console.log('calling');
+      const result = await resolveAfter2Seconds();
+      console.log(result);
+      // expected output: "resolved"
+    }
 
-        asyncCall();
+    asyncCall();
 
 //await new Promise(r => setTimeout(r, 2000));
 
-        function sleep(ms) {
-            return new Promise(resolve => setTimeout(resolve, ms));
-        }
+    function sleep(ms) {
+      return new Promise(resolve => setTimeout(resolve, ms));
+    }
 
-        sleep(5000);
+    sleep(5000);
 
-        const myPromise = new Promise((resolve) => {
-            resolve('foo');
-        });
-
-        myPromise
-            .then(value => {
-                return value + ' and bar';
-            })
-            .then(value => {
-                return value + ' and bar again';
-            })
-            .then(value => {
-                return value + ' and again';
-            })
-            .then(value => {
-                return value + ' and again';
-            })
-            .then(value => {
-                console.log(value)
-            })
-            .catch(err => {
-                console.log(err)
-            });
+    const myPromise = new Promise((resolve) => {
+      resolve('foo');
     });
 
-    it('ts test2', async () => {
-        let obj: any = { x: 1 };
-        console.log(obj.x);
-    });
+    myPromise
+      .then(value => {
+        return value + ' and bar';
+      })
+      .then(value => {
+        return value + ' and bar again';
+      })
+      .then(value => {
+        return value + ' and again';
+      })
+      .then(value => {
+        return value + ' and again';
+      })
+      .then(value => {
+        console.log(value)
+      })
+      .catch(err => {
+        console.log(err)
+      });
+  });
+
+  it('ts test2', async () => {
+    let obj: any = { x: 1 };
+    console.log(obj.x);
+  });
 });
