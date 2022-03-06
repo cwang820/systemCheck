@@ -1,5 +1,5 @@
 describe('tests', () => {
-    it('basic test', async () => {
+    it('ts test1', async () => {
         function resolveAfter2Seconds() {
             return new Promise(resolve => {
                 setTimeout(() => {
@@ -48,6 +48,10 @@ describe('tests', () => {
             .catch(err => {
                 console.log(err)
             });
+    });
 
+    it('ts test2', async () => {
+        let obj: any = { x: 1 };
+        console.log(obj.x);
     });
 });

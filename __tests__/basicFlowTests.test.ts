@@ -1,17 +1,34 @@
-import { Market, MarketInformation } from '../src/types';
+import { Market, MarketInformation, updatePriceMap, debugPrint } from '../src/types';
 
 describe('tests', () => {
   it('basic test', async () => {
     const btcInformation: MarketInformation = {
       market: Market.BTC_USD,
-      creationDate: ' 2021-12-17T23:00:00.000Z',
       exchangePrices: {
         coinbase: {
+          ts: new Date('2021-12-17T23:00:00.000Z'),
           lastPrice: 49000,
           marketId: '1',
         },
         ftx: {
+          ts: new Date('2021-12-17T23:00:00.000Z'),
           lastPrice: 49800,
+          marketId: '2',
+        },
+      },
+    };
+
+    const newData: MarketInformation = {
+      market: Market.BTC_USD,
+      exchangePrices: {
+        coinbase: {
+          ts: new Date('2021-12-17T22:59:00.000Z'),
+          lastPrice: 48900,
+          marketId: '1',
+        },
+        ftx: {
+          ts: new Date('2021-12-17T23:00:01.000Z'),
+          lastPrice: 49900,
           marketId: '2',
         },
       },
@@ -28,5 +45,8 @@ describe('tests', () => {
         'ftx',
       ].includes(exchange));
     });
+
+    debugPrint(btcInformation);
+    console.log(updatePriceMap(newData, btcInformation));
   });
 });
